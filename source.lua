@@ -10,8 +10,8 @@ iRay  | Programming
 
 
 
-local InterfaceBuild = '9HFN'
-local Release = "Build 1.44"
+local InterfaceBuild = 'U8B1'
+local Release = "Build 1.48"
 local RayfieldFolder = "Rayfield"
 local ConfigurationFolder = RayfieldFolder.."/Configurations"
 local ConfigurationExtension = ".rfld"
@@ -396,8 +396,7 @@ local RayfieldLibrary = {
 			InputBackground = Color3.fromRGB(220, 230, 240),
 			InputStroke = Color3.fromRGB(180, 190, 200),
 			PlaceholderColor = Color3.fromRGB(150, 150, 150)
-		}
-
+		},
 	}
 }
 
@@ -491,7 +490,7 @@ local Topbar = Main.Topbar
 local Elements = Main.Elements
 local LoadingFrame = Main.LoadingFrame
 local TabList = Main.TabList
-local dragBar = Main:FindFirstChild('Drag')
+local dragBar = Rayfield:FindFirstChild('Drag')
 local dragInteract = dragBar and dragBar.Interact or nil
 local dragBarCosmetic = dragBar and dragBar.Drag or nil
 
@@ -552,7 +551,7 @@ local function ChangeTheme(ThemeName)
 	end
 end
 
-local function makeDraggable(object, dragObject, enableTaptic)
+local function makeDraggable(object, dragObject, enableTaptic, tapticOffset)
 	local dragging = false
 	local relative = nil
 
@@ -612,7 +611,15 @@ local function makeDraggable(object, dragObject, enableTaptic)
 	local renderStepped = RunService.RenderStepped:Connect(function()
 		if dragging then
 			local position = UserInputService:GetMouseLocation() + relative + offset
-			object.Position = UDim2.fromOffset(position.X, position.Y)
+			if enableTaptic and tapticOffset then
+				TweenService:Create(object, TweenInfo.new(0.4, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = UDim2.fromOffset(position.X, position.Y)}):Play()
+				TweenService:Create(dragObject.Parent, TweenInfo.new(0.05, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = UDim2.fromOffset(position.X, position.Y + tapticOffset)}):Play()
+			else
+				if dragBar and tapticOffset then
+					dragBar.Position = UDim2.fromOffset(position.X, position.Y + tapticOffset)
+				end
+				object.Position = UDim2.fromOffset(position.X, position.Y)
+			end
 		end
 	end)
 
@@ -621,6 +628,7 @@ local function makeDraggable(object, dragObject, enableTaptic)
 		if renderStepped then renderStepped:Disconnect() end
 	end)
 end
+
 
 local function PackColor(Color)
 	return {R = Color.R * 255, G = Color.G * 255, B = Color.B * 255}
@@ -931,6 +939,7 @@ local function Maximise()
 	TweenService:Create(Main.Shadow.Image, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {ImageTransparency = 0.6}):Play()
 	TweenService:Create(Topbar.CornerRepair, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
 	TweenService:Create(Topbar.Divider, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
+	TweenService:Create(dragBarCosmetic, TweenInfo.new(0.25, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {BackgroundTransparency = 0.7}):Play()
 	TweenService:Create(Main, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {Size = useMobileSizing and UDim2.new(0, 500, 0, 275) or UDim2.new(0, 500, 0, 475)}):Play()
 	TweenService:Create(Topbar, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {Size = UDim2.new(0, 500, 0, 45)}):Play()
 	TabList.Visible = true
@@ -1110,6 +1119,7 @@ local function Minimise()
 		end
 	end
 
+	TweenService:Create(dragBarCosmetic, TweenInfo.new(0.25, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
 	TweenService:Create(Topbar.UIStroke, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {Transparency = 0}):Play()
 	TweenService:Create(Main.Shadow.Image, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {ImageTransparency = 1}):Play()
 	TweenService:Create(Topbar.CornerRepair, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
@@ -1211,8 +1221,8 @@ function RayfieldLibrary:CreateWindow(Settings)
 		end
 	end)
 
-	makeDraggable(Main, Topbar)
-	if dragBar then makeDraggable(Main, dragInteract, true) end
+	makeDraggable(Main, Topbar, false, 255)
+	if dragBar then makeDraggable(Main, dragInteract, true, 255) end
 
 	for _, TabButton in ipairs(TabList:GetChildren()) do
 		if TabButton.ClassName == "Frame" and TabButton.Name ~= "Placeholder" then
@@ -2879,7 +2889,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 	TweenService:Create(LoadingFrame.Subtitle, TweenInfo.new(0.2, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
 	TweenService:Create(LoadingFrame.Version, TweenInfo.new(0.2, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
 	task.wait(0.1)
-	TweenService:Create(Main, TweenInfo.new(0.6, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {Size = useMobileSizing and UDim2.new(0, 500, 0, 275) or UDim2.new(0, 500, 0, 475)}):Play()
+	TweenService:Create(Main, TweenInfo.new(0.6, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = useMobileSizing and UDim2.new(0, 500, 0, 275) or UDim2.new(0, 500, 0, 475)}):Play()
 	TweenService:Create(Main.Shadow.Image, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {ImageTransparency = 0.6}):Play()
 
 	Topbar.BackgroundTransparency = 1
@@ -3098,7 +3108,7 @@ if useStudio then
 		Theme = 'Default',
 		LoadingSubtitle = "by Sirius",
 		ConfigurationSaving = {
-			Enabled = true,
+			Enabled = false,
 			FolderName = nil, -- Create a custom folder for your hub/game
 			FileName = "Big Hub2"
 		},
@@ -3230,7 +3240,7 @@ if useStudio then
 		MultipleOptions = false,
 		Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
 		Callback = function(Options)
-			ChangeTheme(Options[1])
+			Window.ModifyTheme(Options[1])
 			-- The function that takes place when the selected option is changed
 			-- The variable (Options) is a table of strings for the current selected options
 		end,
