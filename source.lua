@@ -901,7 +901,7 @@ local function Hide(notify: boolean?)
 		MPrompt.Size = UDim2.new(0, 40, 0, 10)
 		MPrompt.BackgroundTransparency = 1
 		MPrompt.Title.TextTransparency = 1
-		MPrompt.Visible = true
+		MPrompt.Visible = false
 	end
 
 	task.spawn(closeSearch)
