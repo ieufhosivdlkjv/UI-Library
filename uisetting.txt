@@ -1,3 +1,5 @@
+
+
 if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
     local RunService = game:GetService("RunService")
     gethiddenstuff = {}
@@ -51,17 +53,17 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
         end
     end
     gethiddenstuff.MakeCustomTabs = function(Main)
-        local TabButtongr = Main.TabList.Template
+        local TabButtongr = Main:FindFirstChild("TabList"):FindFirstChild("Template")
         local tabcolor = Instance.new("UIGradient",TabButtongr)
         tabcolor.Color = ColorSequence.new(
             Color3.fromHex("ed7d1a"),
             Color3.fromHex("211aed")
         )
-        if Main.TabList
-        and Main.TabList.Template:FindFirstChild("UIGradient") then
+        if Main:FindFirstChild("TabList")
+        and Main:FindFirstChild("TabList"):FindFirstChild("Template"):FindFirstChild("UIGradient") then
             uitablistconn = RunService.RenderStepped:Connect(function(deltaTime)
-                if Main.TabList
-                and Main.TabList.Template:FindFirstChild("UIGradient") then
+            if Main:FindFirstChild("TabList")
+            and Main:FindFirstChild("TabList"):FindFirstChild("Template"):FindFirstChild("UIGradient") then
                     uitabG = Main.TabList.Template.UIGradient
                     uitabG.Rotation = (uitabG.Rotation + 1) % 333
                 end
@@ -69,17 +71,17 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
         end
     end
     gethiddenstuff.MakeCustomToggles = function(Main)
-        local Toggless = Main.Elements.Template.Toggle.Switch
+        local Toggless = Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Toggle"):FindFirstChild("Switch")
         local togglecg = Instance.new("UIGradient",Toggless)
         togglecg.Color = ColorSequence.new(
             Color3.fromHex("ed7d1a"),
             Color3.fromHex("211aed")
         )
-        if Main.Elements
-        and Main.Elements.Template.Toggle.Switch:FindFirstChild("UIGradient") then
+        if Main:FindFirstChild("Elements")
+        and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Toggle"):FindFirstChild("Switch"):FindFirstChild("UIGradient") then
             uitoggleconn = RunService.RenderStepped:Connect(function(deltaTime)
-                if Main.Elements
-                and Main.Elements.Template.Toggle.Switch:FindFirstChild("UIGradient") then
+                if Main:FindFirstChild("Elements")
+                and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Toggle"):FindFirstChild("Switch"):FindFirstChild("UIGradient") then
                     uitoggleG = Main.Elements.Template.Toggle.Switch.UIGradient
                     uitoggleG.Rotation = (uitoggleG.Rotation + 1) % 333
                 end
@@ -87,17 +89,17 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
         end
     end
     gethiddenstuff.MakeCustomSliders = function(Main)
-        local sliderrr = Main.Elements.Template.Slider.Main.Progress
+        local sliderrr = Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress")
         local windowuigrads = Instance.new("UIGradient",sliderrr)
         windowuigrads.Color = ColorSequence.new(
             Color3.fromHex("ed7d1a"),
             Color3.fromHex("211aed")
             )
-        if Main.Elements
-        and Main.Elements.Template.Slider.Main.Progress:FindFirstChild("UIGradient") then
+        if Main:FindFirstChild("Elements")
+        and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIGradient") then
             uisliderconn = RunService.RenderStepped:Connect(function(deltaTime)
-            if Main.Elements
-            and Main.Elements.Template.Slider.Main.Progress:FindFirstChild("UIGradient") then
+                if Main:FindFirstChild("Elements")
+                and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIGradient") then
                     uisliderG = Main.Elements.Template.Slider.Main.Progress.UIGradient
                     uisliderG.Rotation = (uisliderG.Rotation + 1) % 333
                 end
