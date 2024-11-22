@@ -501,11 +501,35 @@ local dragBarCosmetic = dragBar and dragBar.Drag or nil
 Rayfield.DisplayOrder = 100
 LoadingFrame.Version.Text = Release
 getgenv().Main = Main
+--UI Corner
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ieufhosivdlkjv/UI-Library/refs/heads/main/Protected_4046825164787647.txt"))()
-
 gethiddenstuff.MakeCustomOutline(getgenv().Main)
 gethiddenstuff.MakeCustomTopBar(getgenv().Main)
 
+
+--Slider Color
+local customSliders = Instance.new("UIStroke",dragBar)
+customSliders.Thickness = 1
+customSliders.ApplyStrokeMode = "Border"
+customSliders.Color = Color3.new(1,1,1)
+customSliders.Transparency = 0
+local customgradcolor = Instance.new("UIGradient",customSliders)
+        customgradcolor.Color = ColorSequence.new(
+            Color3.fromHex("ed7d1a"),
+            Color3.fromHex("211aed")
+            )
+        if dragBar
+        and dragBar:FindFirstChild("UIStroke")
+        and dragBar:FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
+            uidragbarconnection = RunService.RenderStepped:Connect(function(deltaTime)
+                if dragBar
+                and dragBar:FindFirstChild("UIStroke")
+                and dragBar:FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
+                    uislider = dragBar.UIStroke.UIGradient
+                    uislider.Rotation = (uislider.Rotation + 1) % 360
+                end
+            end)
+        end
 
 -- Variables
 
