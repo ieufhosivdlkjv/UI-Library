@@ -522,7 +522,7 @@ gethiddenstuff.MakeCustomOutline(getgenv().Main)
 gethiddenstuff.MakeCustomTopBar(getgenv().Main)
 
 
-local tester = Instance.new("UIStroke",Elements)
+local tester = Instance.new("UIStroke",TabList)
 tester.Thickness = 2
 tester.ApplyStrokeMode = "Border"
 tester.Color = Color3.new(1,1,1)
