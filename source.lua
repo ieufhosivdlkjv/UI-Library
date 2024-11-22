@@ -501,7 +501,7 @@ local dragBarCosmetic = dragBar and dragBar.Drag or nil
 Rayfield.DisplayOrder = 100
 LoadingFrame.Version.Text = Release
 getgenv().Main = Main
---UI Corner
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ieufhosivdlkjv/UI-Library/refs/heads/main/uisetting.txt"))()
 gethiddenstuff.MakeCustomOutline(getgenv().Main)
 gethiddenstuff.MakeCustomTopBar(getgenv().Main)
