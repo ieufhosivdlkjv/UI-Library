@@ -473,32 +473,7 @@ if UserInputService.TouchEnabled then
 end
 
 
---[[
 
-if Window
-        and Window:FindFirstChild("UIStroke")
-        and Window:FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
-            connections[selsig] = game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
-                if Window
-                and Window:FindFirstChild("UIStroke")
-                and Window:FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
-                    uiGradient = Window.UIStroke.UIGradient
-                    uiGradient.Rotation = (uiGradient.Rotation + 1) % 360
-                else
-
-                end
-                if Window
-                and Window:FindFirstChild("UIStroke")
-                and Window:FindFirstChild("UIStroke"):FindFirstChild("UIGradient") 
-                and Glow 
-                and Glow.UIGradient then
-                    Glow.UIGradient.Rotation = (Glow.UIGradient.Rotation + 1) % 360
-                else
-                    --connections[selsig]:Disconnect()
-                end
-            end)
-        end
-]]
 
 
 -- Object Variables
