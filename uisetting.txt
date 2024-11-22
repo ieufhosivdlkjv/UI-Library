@@ -81,7 +81,7 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
         )
         if Toggless and Toggless:FindFirstChild("ToggleGrad") then
             uitoggleconn = RunService.RenderStepped:Connect(function(deltaTime)
-                if Toggless and Toggless:FindFirstChild("ToggleGrad")
+                if Toggless and Toggless:FindFirstChild("ToggleGrad") then
                     uitoggleG = Main.Elements.Template.Toggle.Switch.Indicator.ToggleGrad
                     uitoggleG.Rotation = (uitoggleG.Rotation + 1) % 333
                     print(uitoggleG.Rotation)
