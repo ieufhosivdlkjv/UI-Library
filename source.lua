@@ -520,25 +520,9 @@ getgenv().Main = Main
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ieufhosivdlkjv/UI-Library/refs/heads/main/uisetting.txt"))()
 gethiddenstuff.MakeCustomOutline(getgenv().Main)
 gethiddenstuff.MakeCustomTopBar(getgenv().Main)
-
-local sliderrr = Elements.Template.Slider.Main.Progress
-local windowuigrads = Instance.new("UIGradient",sliderrr)
-windowuigrads.Color = ColorSequence.new(
-    Color3.fromHex("ed7d1a"),
-    Color3.fromHex("211aed")
-    )
-local Toggless = Elements.Template.Toggle.Switch
-local togglecg = Instance.new("UIGradient",Toggless)
-togglecg.Color = ColorSequence.new(
-    Color3.fromHex("ed7d1a"),
-    Color3.fromHex("211aed")
-    )
-local TabButtongr = TabList.Template
-local tabcolor = Instance.new("UIGradient",TabButtongr)
-tabcolor.Color = ColorSequence.new(
-    Color3.fromHex("ed7d1a"),
-    Color3.fromHex("211aed")
-    )
+gethiddenstuff.MakeCustomTabs(getgenv().Main)
+gethiddenstuff.MakeCustomToggles(getgenv().Main)
+gethiddenstuff.MakeCustomSliders(getgenv().Main)
 -- Variables
 
 local request = (syn and syn.request) or (http and http.request) or http_request
