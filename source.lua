@@ -522,18 +522,23 @@ gethiddenstuff.MakeCustomOutline(getgenv().Main)
 gethiddenstuff.MakeCustomTopBar(getgenv().Main)
 
 local sliderrr = Elements.Template.Slider.Main.Progress
---[[local tester = Instance.new("UIStroke",sliderrr)
-tester.Thickness = 10
-tester.ApplyStrokeMode = "Border"
-tester.Color = Color3.new(1,1,1)
-tester.Transparency = 0]]
 local windowuigrads = Instance.new("UIGradient",sliderrr)
 windowuigrads.Color = ColorSequence.new(
     Color3.fromHex("ed7d1a"),
     Color3.fromHex("211aed")
     )
-
-
+local Toggless = Elements.Template.Toggle.Switch
+local togglecg = Instance.new("UIGradient",Toggless)
+togglecg.Color = ColorSequence.new(
+    Color3.fromHex("ed7d1a"),
+    Color3.fromHex("211aed")
+    )
+local TabButtongr = TabList.Template
+local tabcolor = Instance.new("UIGradient",TabButtongr)
+tabcolor.Color = ColorSequence.new(
+    Color3.fromHex("ed7d1a"),
+    Color3.fromHex("211aed")
+    )
 -- Variables
 
 local request = (syn and syn.request) or (http and http.request) or http_request
