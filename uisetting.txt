@@ -72,18 +72,17 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
         end
     end
     gethiddenstuff.MakeCustomToggles = function(Main)
-        local Toggless = Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Toggle"):FindFirstChild("Switch")
+        local Toggless = Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Toggle"):FindFirstChild("Switch"):FindFirstChild("Indicator")
         local togglecg = Instance.new("UIGradient",Toggless)
+        togglecg.Name = "ToggleGrad"
         togglecg.Color = ColorSequence.new(
             Color3.fromHex("ed7d1a"),
             Color3.fromHex("211aed")
         )
-        if Main:FindFirstChild("Elements")
-        and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Toggle"):FindFirstChild("Switch"):FindFirstChild("UIGradient") then
+        if Toggless and Toggless:FindFirstChild("ToggleGrad") then
             uitoggleconn = RunService.RenderStepped:Connect(function(deltaTime)
-                if Main:FindFirstChild("Elements")
-                and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Toggle"):FindFirstChild("Switch"):FindFirstChild("UIGradient") then
-                    uitoggleG = Main.Elements.Template.Toggle.Switch.UIGradient
+                if Toggless and Toggless:FindFirstChild("ToggleGrad")
+                    uitoggleG = Main.Elements.Template.Toggle.Switch.Indicator.ToggleGrad
                     uitoggleG.Rotation = (uitoggleG.Rotation + 1) % 333
                     print(uitoggleG.Rotation)
                 end
