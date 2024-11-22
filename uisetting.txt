@@ -56,7 +56,7 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
         local TabButtongr = Main:FindFirstChild("TabList"):FindFirstChild("Template")
         local tabstroke = Instance.new("UIStroke",TabButtongr)
         tabstroke.Thickness = 2
-        tabstroke.ApplyStrokeMode = "Border"
+        tabstroke.ApplyStrokeMode = "Contextual"
         tabstroke.Color = Color3.new(1,1,1)
         tabstroke.Transparency = 0
         local tabcolor = Instance.new("UIGradient",tabstroke)
@@ -96,6 +96,10 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
     gethiddenstuff.MakeCustomSliders = function(Main)
         local sliderrr = Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress")
         local sliderstroke = Instance.new("UIStroke",sliderrr)
+        sliderstroke.Thickness = 2
+        sliderstroke.ApplyStrokeMode = "Border"
+        sliderstroke.Color = Color3.new(1,1,1)
+        sliderstroke.Transparency = 0
         local slideruigrads = Instance.new("UIGradient",sliderstroke)
         slideruigrads.Color = ColorSequence.new(
             Color3.fromHex("ed7d1a"),
