@@ -497,7 +497,7 @@ local TabList = Main.TabList
 local dragBar = Rayfield:FindFirstChild('Drag')
 local dragInteract = dragBar and dragBar.Interact or nil
 local dragBarCosmetic = dragBar and dragBar.Drag or nil
-local SliderSetting = Elements.Template.Slider
+
 Rayfield.DisplayOrder = 100
 LoadingFrame.Version.Text = Release
 getgenv().Main = Main
@@ -505,33 +505,6 @@ getgenv().Main = Main
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ieufhosivdlkjv/UI-Library/refs/heads/main/uisetting.txt"))()
 gethiddenstuff.MakeCustomOutline(getgenv().Main)
 gethiddenstuff.MakeCustomTopBar(getgenv().Main)
-
-
---Slider Color
-
-
-        local custom = Instance.new("UIStroke",SliderSetting)
-        custom.Thickness = 1.5
-        custom.ApplyStrokeMode = "Border"
-        custom.Color = Color3.new(1,1,1)
-        custom.Transparency = 0
-        local customgradcolor = Instance.new("UIGradient",customTopBar)
-        customgradcolor.Color = ColorSequence.new(
-            Color3.fromHex("ed7d1a"),
-            Color3.fromHex("211aed")
-            )
-        if SliderSetting
-        and SliderSetting:FindFirstChild("UIStroke")
-        and SliderSetting:FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
-            uisliderconnection = RunService.RenderStepped:Connect(function(deltaTime)
-                if SliderSetting
-                and SliderSetting:FindFirstChild("UIStroke")
-                and SliderSetting:FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
-                    uiGsl = SliderSetting.UIStroke.UIGradient
-                    uiGsl.Rotation = (uiGsl.Rotation + 1) % 300
-                end
-            end)
-        end
 
 
 -- Variables
