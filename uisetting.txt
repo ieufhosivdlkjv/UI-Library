@@ -91,21 +91,22 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
         end
     end
     gethiddenstuff.MakeCustomSliders = function(Main)
-        local sliderrr = Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress")
-        local slideruigrads = Instance.new("UIGradient",sliderrr.UIStroke)
-        slideruigrads.Color = ColorSequence.new(
-            Color3.fromHex("ed7d1a"),
-            Color3.fromHex("211aed")
-            )
-        if Main:FindFirstChild("Elements")
-        and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
-            uisliderconn = RunService.RenderStepped:Connect(function(deltaTime)
-                if Main:FindFirstChild("Elements")
-                and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
-                    uisliderG = Main.Elements.Template.Slider.Main.Progress.UIStroke.UIGradient
-                    uisliderG.Rotation = (uisliderG.Rotation + 1) % 333
-                end
-            end)
+        if Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress") then
+            local slideruigrads = Instance.new("UIGradient",Main.Elements.Template.Slider.Main.Progress)
+            slideruigrads.Color = ColorSequence.new(
+                Color3.fromHex("ed7d1a"),
+                Color3.fromHex("211aed")
+                )
+            if Main:FindFirstChild("Elements")
+            and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIGradient") then
+                uisliderconn = RunService.RenderStepped:Connect(function(deltaTime)
+                    if Main:FindFirstChild("Elements")
+                    and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIGradient") then
+                        uisliderG = Main.Elements.Template.Slider.Main.Progress.UIGradient
+                        uisliderG.Rotation = (uisliderG.Rotation + 1) % 333
+                    end
+                end)
+            end
         end
     end
 end
