@@ -54,23 +54,19 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
     end
     gethiddenstuff.MakeCustomTabs = function(Main)
         local TabButtongr = Main:FindFirstChild("TabList"):FindFirstChild("Template")
-        local tabstroke = Instance.new("UIStroke",TabButtongr)
-        tabstroke.Thickness = 2
-        tabstroke.ApplyStrokeMode = "Contextual"
-        tabstroke.Color = Color3.new(1,1,1)
-        tabstroke.Transparency = 0
-        local tabcolor = Instance.new("UIGradient",tabstroke)
+        local tabcolor = Instance.new("UIGradient",TabButtongr)
         tabcolor.Color = ColorSequence.new(
             Color3.fromHex("ed7d1a"),
             Color3.fromHex("211aed")
         )
         if Main:FindFirstChild("TabList")
-        and Main:FindFirstChild("TabList"):FindFirstChild("Template"):FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
+        and Main:FindFirstChild("TabList"):FindFirstChild("Template"):FindFirstChild("UIGradient") then
             uitablistconn = RunService.RenderStepped:Connect(function(deltaTime)
             if Main:FindFirstChild("TabList")
-            and Main:FindFirstChild("TabList"):FindFirstChild("Template"):FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
-                    uitabG = Main.TabList.Template.UIStroke.UIGradient
+            and Main:FindFirstChild("TabList"):FindFirstChild("Template"):FindFirstChild("UIGradient") then
+                    uitabG = Main.TabList.Template.UIGradient
                     uitabG.Rotation = (uitabG.Rotation + 1) % 333
+                    print(uitabG.Rotation)
                 end
             end)
         end
@@ -89,28 +85,24 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
                 and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Toggle"):FindFirstChild("Switch"):FindFirstChild("UIGradient") then
                     uitoggleG = Main.Elements.Template.Toggle.Switch.UIGradient
                     uitoggleG.Rotation = (uitoggleG.Rotation + 1) % 333
+                    print(uitoggleG.Rotation)
                 end
             end)
         end
     end
     gethiddenstuff.MakeCustomSliders = function(Main)
         local sliderrr = Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress")
-        local sliderstroke = Instance.new("UIStroke",sliderrr)
-        sliderstroke.Thickness = 2
-        sliderstroke.ApplyStrokeMode = "Border"
-        sliderstroke.Color = Color3.new(1,1,1)
-        sliderstroke.Transparency = 0
-        local slideruigrads = Instance.new("UIGradient",sliderstroke)
+        local slideruigrads = Instance.new("UIGradient",sliderrr)
         slideruigrads.Color = ColorSequence.new(
             Color3.fromHex("ed7d1a"),
             Color3.fromHex("211aed")
             )
         if Main:FindFirstChild("Elements")
-        and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
+        and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIGradient") then
             uisliderconn = RunService.RenderStepped:Connect(function(deltaTime)
                 if Main:FindFirstChild("Elements")
-                and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
-                    uisliderG = Main.Elements.Template.Slider.Main.Progress.UIStroke.UIGradient
+                and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIGradient") then
+                    uisliderG = Main.Elements.Template.Slider.Main.Progress.UIGradient
                     uisliderG.Rotation = (uisliderG.Rotation + 1) % 333
                 end
             end)
