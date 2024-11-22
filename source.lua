@@ -1,15 +1,3 @@
---[[
-
-Rayfield Interface Suite
-by Sirius
-
-shlex | Designing + Programming
-iRay  | Programming
-
-]]
-
-
-
 local InterfaceBuild = 'K7GD'
 local Release = "Build 1.53"
 local RayfieldFolder = "Rayfield"
@@ -485,6 +473,33 @@ if UserInputService.TouchEnabled then
 end
 
 
+--[[
+
+if Window
+        and Window:FindFirstChild("UIStroke")
+        and Window:FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
+            connections[selsig] = game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
+                if Window
+                and Window:FindFirstChild("UIStroke")
+                and Window:FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
+                    uiGradient = Window.UIStroke.UIGradient
+                    uiGradient.Rotation = (uiGradient.Rotation + 1) % 360
+                else
+
+                end
+                if Window
+                and Window:FindFirstChild("UIStroke")
+                and Window:FindFirstChild("UIStroke"):FindFirstChild("UIGradient") 
+                and Glow 
+                and Glow.UIGradient then
+                    Glow.UIGradient.Rotation = (Glow.UIGradient.Rotation + 1) % 360
+                else
+                    --connections[selsig]:Disconnect()
+                end
+            end)
+        end
+]]
+
 
 -- Object Variables
 getgenv().isInstanceAllowedName = "TheOneAndOnlyHahaha"
@@ -505,6 +520,18 @@ getgenv().Main = Main
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ieufhosivdlkjv/UI-Library/refs/heads/main/uisetting.txt"))()
 gethiddenstuff.MakeCustomOutline(getgenv().Main)
 gethiddenstuff.MakeCustomTopBar(getgenv().Main)
+
+
+local tester = Instance.new("UIStroke",Elements)
+tester.Thickness = 2
+tester.ApplyStrokeMode = "Border"
+tester.Color = Color3.new(1,1,1)
+tester.Transparency = 0
+local windowuigrads = Instance.new("UIGradient",tester)
+windowuigrads.Color = ColorSequence.new(
+    Color3.fromHex("ed7d1a"),
+    Color3.fromHex("211aed")
+    )
 
 
 -- Variables
