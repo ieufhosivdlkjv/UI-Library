@@ -54,17 +54,22 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
     end
     gethiddenstuff.MakeCustomTabs = function(Main)
         local TabButtongr = Main:FindFirstChild("TabList"):FindFirstChild("Template")
-        local tabcolor = Instance.new("UIGradient",TabButtongr)
+        local tabstroke = Instance.new("UIStroke",TabButtongr)
+        tabstroke.Thickness = 2
+        tabstroke.ApplyStrokeMode = "Border"
+        tabstroke.Color = Color3.new(1,1,1)
+        tabstroke.Transparency = 0
+        local tabcolor = Instance.new("UIGradient",tabstroke)
         tabcolor.Color = ColorSequence.new(
             Color3.fromHex("ed7d1a"),
             Color3.fromHex("211aed")
         )
         if Main:FindFirstChild("TabList")
-        and Main:FindFirstChild("TabList"):FindFirstChild("Template"):FindFirstChild("UIGradient") then
+        and Main:FindFirstChild("TabList"):FindFirstChild("Template"):FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
             uitablistconn = RunService.RenderStepped:Connect(function(deltaTime)
             if Main:FindFirstChild("TabList")
-            and Main:FindFirstChild("TabList"):FindFirstChild("Template"):FindFirstChild("UIGradient") then
-                    uitabG = Main.TabList.Template.UIGradient
+            and Main:FindFirstChild("TabList"):FindFirstChild("Template"):FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
+                    uitabG = Main.TabList.Template.UIStroke.UIGradient
                     uitabG.Rotation = (uitabG.Rotation + 1) % 333
                 end
             end)
@@ -90,17 +95,18 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
     end
     gethiddenstuff.MakeCustomSliders = function(Main)
         local sliderrr = Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress")
-        local windowuigrads = Instance.new("UIGradient",sliderrr)
-        windowuigrads.Color = ColorSequence.new(
+        local sliderstroke = Instance.new("UIStroke",sliderrr)
+        local slideruigrads = Instance.new("UIGradient",sliderstroke)
+        slideruigrads.Color = ColorSequence.new(
             Color3.fromHex("ed7d1a"),
             Color3.fromHex("211aed")
             )
         if Main:FindFirstChild("Elements")
-        and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIGradient") then
+        and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
             uisliderconn = RunService.RenderStepped:Connect(function(deltaTime)
                 if Main:FindFirstChild("Elements")
-                and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIGradient") then
-                    uisliderG = Main.Elements.Template.Slider.Main.Progress.UIGradient
+                and Main:FindFirstChild("Elements"):FindFirstChild("Template"):FindFirstChild("Slider"):FindFirstChild("Main"):FindFirstChild("Progress"):FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
+                    uisliderG = Main.Elements.Template.Slider.Main.Progress.UIStroke.UIGradient
                     uisliderG.Rotation = (uisliderG.Rotation + 1) % 333
                 end
             end)
