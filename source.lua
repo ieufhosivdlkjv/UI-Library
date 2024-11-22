@@ -2973,7 +2973,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 				Slider.Main.BackgroundColor3 = SelectedTheme.SliderBackground
 				Slider.Main.UIStroke.Color = SelectedTheme.SliderStroke
 				Slider.Main.Progress.UIStroke.Color = SelectedTheme.SliderStroke
-				--Slider.Main.Progress.BackgroundColor3 = SelectedTheme.SliderProgress
+				Slider.Main.Progress.BackgroundColor3 = SelectedTheme.SliderProgress
 			end)
 
 			return SliderSettings
