@@ -1576,7 +1576,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 		TabButton.BackgroundTransparency = 1
 		TabButton.Title.TextTransparency = 1
 		TabButton.Image.ImageTransparency = 1 
-		TabButton.UIStroke.Thickness = 2
+		TabButton.UIStroke.Thickness = 2.5
         TabButton.UIStroke.ApplyStrokeMode = "Border"
         TabButton.UIStroke.Color = Color3.new(1,1,1)
 		TabButton.UIStroke.Transparency = 0
@@ -2968,7 +2968,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 				end
 			end
 
-			Rayfield.Main:GetPropertyChangedSignal('BackgroundColor3'):Connect(function()
+			--[[Rayfield.Main:GetPropertyChangedSignal('BackgroundColor3'):Connect(function()
 				if SelectedTheme ~= RayfieldLibrary.Theme.Default then
 					Slider.Main.Shadow.Visible = false
 				end
@@ -2977,12 +2977,12 @@ function RayfieldLibrary:CreateWindow(Settings)
 				Slider.Main.UIStroke.Color = SelectedTheme.SliderStroke
 				Slider.Main.Progress.UIStroke.Color = SelectedTheme.SliderStroke
 				Slider.Main.Progress.BackgroundColor3 = SelectedTheme.SliderProgress
-			end)
+			end)]]
 
 			return SliderSettings
 		end
 
-		Rayfield.Main:GetPropertyChangedSignal('BackgroundColor3'):Connect(function()
+		--[[Rayfield.Main:GetPropertyChangedSignal('BackgroundColor3'):Connect(function()
 			TabButton.UIStroke.Color = SelectedTheme.TabStroke
 
 			if Elements.UIPageLayout.CurrentPage == TabPage then
@@ -2994,7 +2994,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 				TabButton.Image.ImageColor3 = SelectedTheme.TabTextColor
 				TabButton.Title.TextColor3 = SelectedTheme.TabTextColor
 			end
-		end)
+		end)]]
 
 		return Tab
 	end
