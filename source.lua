@@ -495,9 +495,7 @@ getgenv().Main = Main
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ieufhosivdlkjv/UI-Library/refs/heads/main/uisetting.txt"))()
 gethiddenstuff.MakeCustomOutline(getgenv().Main)
 gethiddenstuff.MakeCustomTopBar(getgenv().Main)
-gethiddenstuff.MakeCustomTabs(getgenv().Main)
-gethiddenstuff.MakeCustomToggles(getgenv().Main)
-gethiddenstuff.MakeCustomSliders(getgenv().Main)
+
 -- Variables
 
 local request = (syn and syn.request) or (http and http.request) or http_request
@@ -3445,6 +3443,8 @@ task.delay(4, function()
 		Main.Notice.Visible = false 
 	end
 end)
-
+gethiddenstuff.MakeCustomTabs(getgenv().Main)
+gethiddenstuff.MakeCustomToggles(getgenv().Main)
+gethiddenstuff.MakeCustomSliders(getgenv().Main)
 
 return RayfieldLibrary
