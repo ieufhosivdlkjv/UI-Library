@@ -1575,7 +1575,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 
 		TabButton.BackgroundTransparency = 1
 		TabButton.Title.TextTransparency = 1
-		TabButton.Image.ImageTransparency = 1
+		TabButton.Image.ImageTransparency = 
+		TabButton.UIStroke.Thickness = 2
+        TabButton.UIStroke.ApplyStrokeMode = "Border"
+        TabButton.UIStroke.Color = Color3.new(1,1,1)
 		TabButton.UIStroke.Transparency = 0
 
 		TabButton.Visible = true
