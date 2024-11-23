@@ -53,18 +53,18 @@ if getgenv().isInstanceAllowedName == "TheOneAndOnlyHahaha" then
         end
     end
     gethiddenstuff.MakeCustomTabs = function(Main)
-        local TabButtongr = Main:FindFirstChild("TabList"):FindFirstChild("Template")
-        local tabcolor = Instance.new("UIGradient",TabButtongr.UIStroke)
+        local TabButtongr = Main:FindFirstChild("TabList")
+        local tabcolor = Instance.new("UIGradient",TabButtongr)
         tabcolor.Color = ColorSequence.new(
             Color3.fromHex("ed7d1a"),
             Color3.fromHex("211aed")
         )
-        if Main:FindFirstChild("TabList")
-        and Main:FindFirstChild("TabList"):FindFirstChild("Template"):FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
+        if TabButtongr
+        and TabButtongr:FindFirstChild("UIGradient") then
             uitablistconn = RunService.RenderStepped:Connect(function(deltaTime)
-            if Main:FindFirstChild("TabList")
-            and Main:FindFirstChild("TabList"):FindFirstChild("Template"):FindFirstChild("UIStroke"):FindFirstChild("UIGradient") then
-                    uitabG = Main.TabList.Template.UIStroke.UIGradient
+            if TabButtongr
+            and TabButtongr:FindFirstChild("UIGradient") then
+                    uitabG = Main.TabList.UIGradient
                     uitabG.Rotation = (uitabG.Rotation + 1) % 340
                 end
             end)
